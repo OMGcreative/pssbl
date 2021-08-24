@@ -30,8 +30,8 @@ html {
   }
 
 
-::-moz-selection { background: var(--green-50); }
-::selection { background: var(--green-50); }
+::-moz-selection { background: rgba(var(--white-rgb), 0.1); }
+::selection { background: rgba(var(--white-rgb), 0.1); }
 
 /* colours */
 
@@ -59,14 +59,15 @@ BASICS
 body, main {width: 100%;}
 
 body {
-    background-color: var(--grey);
-    padding-bottom: 2rem;
+    /* background-color: var(--grey); */
+    /* padding-bottom: 2rem; */
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 header, .header_wrap, footer {
@@ -75,14 +76,32 @@ header, .header_wrap, footer {
     align-items: center;
     justify-content: center;
     align-content: center;
-    
 }
+header, footer {
+    position: absolute;
+    z-index: 111;
+}
+footer {
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(0deg,rgba(0,0,0,0.4),rgba(0,0,0,0));
+}
+@media screen and (max-width: 580px) {
+    footer {
+        /* position: relative; */
+        height: 35vh;
+        /* background-color: var(--main-color); */
+    }
+}
+
 header, .header_wrap{
     height: 10vw;
+    width: 100vw;
 }
 @media screen and (max-width: 580px) {
     header, .header_wrap{
         height: 20vw;
+        /* background-color: var(--main-color); */
     }
 }
 
@@ -91,8 +110,8 @@ header a {
 }
 
 .logo_link svg {
-    width: 20%;
-    width:179px;
+    /* width: 20%; */
+    width: 179px;
     height: 30px;
 }
 
@@ -102,32 +121,36 @@ header a {
     -o-transition: all .25s ease-out;
     transition: all .25s ease-out;
 }
-
+.logo_link svg path {
+    fill:rgba(var(--white-rgb), 1.0);
+} 
 .logo_link:hover svg path {
     -webkit-transition: all .25s ease-out;
     -moz-transition: all .25s ease-out;
     -o-transition: all .25s ease-out;
     transition: all .25s ease-out;
-} 
+}
 
 .logo_link:hover svg path {
-    fill:var(--blackblack);
+    fill:rgba(var(--white-rgb), 0.5);
 } 
 
 section {}
 
 #shout {
-    width:66vw;
+    width:100vw;
+    height: 100vh;
+    background-image: url("../img/pssbl_hero_full.jpg");
+    background-size: cover;
+    background-position: center center;
 } 
 @media screen and (max-width: 80em) {
     #shout {
-        width:80vw;
-        max-width: 1000px;
+        
     }
 }
 @media screen and (max-width: 48em) {
     #shout {
-        width:90vw;
     }
 }
 
@@ -135,56 +158,20 @@ section {}
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
 @media screen and (max-width: 580px) {
     .shout_wrap {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 }
 
 
-.img_wrap,
-[class*="img_wrap"] {
-    /* min-width: 100%; */
-    width: calc(100vw / 3);
-}
-@media screen and (max-width: 80em) {
-    [class*="img_wrap"] {
-        width:45vw;
-    }
-}
-@media screen and (max-width: 48em) {
-    [class*="img_wrap"] {
-        width:unset;
-    }
-}
-
-[class*="_img"] {
-    width: 100%;
-    /* height: 60vh; */
-    object-fit: cover; 
-}
-@media screen and (max-width: 80em) {
-    [class*="_img"] {
-        height: 50vw;
-    }
-}
-@media screen and (max-width: 580px) {
-    [class*="_img"] {
-        width: 90vw;
-        height: 50vw;
-    }
-}
-
-.img_wrap_col {
-    width: calc(100vw / 3);
-}
 
 h1, h2, h3, a, form div {
-    color: var(--main-color);
+    /* color: var(--white); */
 }
 
 a {
@@ -195,8 +182,8 @@ a:hover {
 }
 
 h1 {
-    font-size: 36px;
-    font-size: min(max(20px, 1.875vw), 36px);
+    font-size: 28px;
+    font-size: min(max(20px, 1.458vw), 28px);
     line-height: 1.2;
 }
 
@@ -214,30 +201,45 @@ h1 {
 .text_col:first-of-type {
     padding-right: 8%;
 }
+.text_col:last-of-type {
+    
+    height: 100%;
+    background-image: linear-gradient(-90deg,rgba(0,0,0,0.4),rgba(0,0,0,0));
+
+}
 @media screen and (max-width: 580px) {
     .text_col {
-        width: unset;
+        width: 50%;
         padding: 5%;
+    }
+    .text_col:first-of-type {
+        /* margin-top: 10vh */
+    }
+    .text_col:last-of-type {
+        
     }
 }
 
 .text_col h1 {
     text-align: left;
+    color: var(--white);
 }
 .text_col:last-of-type h1 {
     text-align: right;
+    /* color: var(--main-color); */
 }
 @media screen and (max-width: 580px) {
     .text_col h1,
     .text_col:last-of-type h1 {
-        text-align: center;
+        /* text-align: center; */
         padding: 0;
+        /* color: var(--white); */
     }
 }
 
 h2 {
-    font-size: 24px;
-    font-size: min(max(20px, 1.25vw), 24px);
+    font-size: 20px;
+    font-size: min(max(18px, 1.05vw), 20px);
 }
 h3, a {
     font-size: 14px;
@@ -247,6 +249,7 @@ h3, a {
 
 .footer_wrap {
     text-align: center;
+    color: rgba(var(--white-rgb), 1.0);
 }
 
 /* #form, form,  */
@@ -292,7 +295,9 @@ form div {
 
 #mc_embed_signup_scroll {
     display: flex;
+    justify-content: center;
     gap: 10px;
+    height: 85px;
 }  
 @media screen and (max-width: 580px) {
     #mc_embed_signup_scroll {
@@ -300,6 +305,13 @@ form div {
     }
 }
 
+#mc_embed_signup_scroll .button_wrap {
+    /* position: absolute;
+    width: 300px */
+}
+#mc_embed_signup_scroll .button_wrap:hover {
+    /* position: relative; */
+}
 
 input[type="email"] {
     font-size:14px;
@@ -308,17 +320,19 @@ input[type="email"] {
     width:100%;
     height:30px;
     background-color: transparent;
+    color:rgba(var(--white-rgb), 1.0); 
     border:none;
-    border-bottom:1px solid rgba(var(--main-rgb), 0.8);
+    border-bottom:1px solid rgba(var(--white-rgb), 0.8);
 }
 
 input[type="email"]:focus {
     outline:none;
-    border-bottom:2px solid rgba(var(--main-rgb), 1.0); 
+    border-bottom:2px solid rgba(var(--white-rgb), 1.0); 
+    background-color: rgba(var(--main-rgb), 0.2);
 }
 
 label {
-    color:rgba(var(--main-rgb), 0.8); 
+    color:rgba(var(--white-rgb), 0.8); 
     font-size:14px;
     font-weight:normal;
     position:absolute;
@@ -330,10 +344,11 @@ label {
     -webkit-transition:0.2s ease all;
 }
 
-input[type="email"]:focus ~ label, input[type="email"]:not(:placeholder-shown) ~ label {
+input[type="email"]:focus ~ label, 
+input[type="email"]:not(:placeholder-shown) ~ label {
     top:-18px;
     font-size:14px;
-    color:rgba(var(--main-rgb), 1.0);
+    color:rgba(var(--white-rgb), 1.0);
 }
   /*  */
 
@@ -346,10 +361,10 @@ input[type="email"]:focus ~ label, input[type="email"]:not(:placeholder-shown) ~
     text-overflow: ellipsis;
     overflow: hidden;
     padding: 4px 28px;
-    border-radius: 5px;
-    background: rgba(var(--main-rgb), 0.0);
-    color:rgba(var(--main-rgb), 1.0);
-    border-color: rgba(var(--main-rgb), 1.0);
+    /* border-radius: 5px; */
+    background: rgba(var(--white-rgb), 0.0);
+    color:rgba(var(--white-rgb), 1.0);
+    border-color: rgba(var(--white-rgb), 1.0);
     border-style: solid;
     border-width: 1px;
     /* font-family: var(--font-family); */
@@ -371,9 +386,15 @@ input[type="email"]:focus ~ label, input[type="email"]:not(:placeholder-shown) ~
 }
 
 .button:hover {   
-    background: rgba(var(--main-rgb), 1.0);
-    color:#fff;
-    border-color: rgba(var(--main-rgb), 1.0);
+    background: rgba(var(--white-rgb), 1.0);
+    color: rgba(var(--main-rgb), 1.0);
+    border-color: rgba(var(--white-rgb), 1.0);
+}
+
+.button:focus {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #fff;
 }
 
 /*  */
