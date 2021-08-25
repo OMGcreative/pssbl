@@ -48,6 +48,8 @@ html {
     /*  */
     --grey: #E5E5E5;
     --grey-rgb: 229,229,229;
+    /*  */
+    --error-msg: #ffe984
     
 }
 
@@ -414,7 +416,7 @@ input[type="email"]:not(:placeholder-shown) ~ label {
     border-width: 1px;
     /* font-family: var(--font-family); */
     font-weight: 500;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     /* line-height: 1.5; */
     line-height: 1.8;
     height: 30px;
@@ -448,16 +450,16 @@ input[type="email"]:not(:placeholder-shown) ~ label {
  * Errors
  */
  .error {
-	border-color: #ffe984;
+	border-color: var(--error-msg);
 }
 
 .error-message {
-	color: #ffe984;
+	color: var(--error-msg);;
 	/* font-style: italic; */
 	margin-top: 0.25em;
 	margin-bottom: 1em;
     text-align: left;
-    font-size: 0.6em;
+    font-size: 0.6rem;
 }
 @media screen and (max-width: 580px) {
     .error-message {
@@ -466,10 +468,19 @@ input[type="email"]:not(:placeholder-shown) ~ label {
 }
 
 
+.mc-status a {
+    font-size: 0.6rem;
+    text-decoration: solid;
+    color: var(--error-msg);
+}
+
 .success-message {
-  color: green;
-  /* font-style: italic; */
-  margin-bottom: 1em;
+    background-color: rgba(var(--white-rgb),0.8);
+    color:rgb(var(--main-rgb), 0.8);
+    font-size: 0.6rem;
+    padding: 0.25em 0.5em ;
+    text-align: left;
+    /* margin-bottom: 1em; */
 }
 
 .mc-status:focus {
