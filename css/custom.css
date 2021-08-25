@@ -1,10 +1,9 @@
 /* custom.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700;
     font-style: normal;
 }
 
@@ -90,13 +89,14 @@ footer {
     footer {
         /* position: relative; */
         height: 35vh;
-        /* background-color: var(--main-color); */
+        background-image: linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0));
     }
 }
 
-header, .header_wrap{
+header{
     height: 10vw;
     width: 100vw;
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.4),rgba(0,0,0,0));
 }
 @media screen and (max-width: 580px) {
     header, .header_wrap{
@@ -174,6 +174,7 @@ h1, h2, h3, a, form div {
     /* color: var(--white); */
 }
 
+
 a {
     text-decoration: none;
 }
@@ -185,28 +186,43 @@ h1 {
     font-size: 28px;
     font-size: min(max(20px, 1.458vw), 28px);
     line-height: 1.2;
+    font-weight: unset;
 }
+.four {font-weight: 40;}
+.five {font-weight: 500;}
+.seven {font-weight: 700;}
+.nine {font-weight: 900;}
 
 .text_col {
     /* background-color: #ffffff;*/
-    padding: 3.5%;
+    padding: 6.5%;
     /* height: 66vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 33%;
 }
 
 .text_col:first-of-type {
-    padding-right: 8%;
+    /* padding-right: 10%; */
+    align-items: flex-start;
 }
 .text_col:last-of-type {
-    
+    /* padding-left: 10%; */
+    align-items: flex-end;
     height: 100%;
-    background-image: linear-gradient(-90deg,rgba(0,0,0,0.4),rgba(0,0,0,0));
-
+    background-image: linear-gradient(-90deg,rgba(255,255,255,0.6),rgba(255,255,255,0));
 }
+@media screen and (max-width: 750px) {
+    .text_col {
+        width: 50%;
+    }
+    .text_col:last-of-type {
+        background-image: linear-gradient(-90deg,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    }
+}
+
 @media screen and (max-width: 580px) {
     .text_col {
         width: 50%;
@@ -216,17 +232,17 @@ h1 {
         /* margin-top: 10vh */
     }
     .text_col:last-of-type {
-        
+        /* background-image: linear-gradient(-90deg,rgba(255,255,255,0.8),rgba(255,255,255,0)); */
     }
 }
 
 .text_col h1 {
     text-align: left;
-    color: var(--white);
+    color: rgba(var(--white-rgb),0.8);
 }
 .text_col:last-of-type h1 {
     text-align: right;
-    /* color: var(--main-color); */
+    color: rgb(var(--main-rgb), 0.8);
 }
 @media screen and (max-width: 580px) {
     .text_col h1,
@@ -239,11 +255,13 @@ h1 {
 
 h2 {
     font-size: 20px;
-    font-size: min(max(18px, 1.05vw), 20px);
+    font-size: min(max(14px, 1.04vw), 20px);
+    color: rgba(var(--white-rgb),0.8);
+
 }
 h3, a {
-    font-size: 14px;
-    font-size: min(max(14px, 0.83vw), 16px);
+    font-size: 13px;
+    font-size: min(max(13px, 0.83vw), 13px);
     margin-bottom: 0;
 }
 
@@ -271,7 +289,12 @@ h3, a {
     /* position: relative; */
     margin-bottom: 1rem;
 }
-
+@media screen and (max-width: 580px) {
+    .form_row,
+    .mc-field-group {
+        margin-bottom: 0;
+    }
+}
 form div {
     font-weight: 400;
 }
@@ -291,7 +314,13 @@ form div {
     position:relative; 
     margin-bottom:20px;
     min-width: 250PX; 
-  }
+}
+@media screen and (max-width: 580px) {
+    .mc-field-group {
+        margin-bottom: 0;
+        min-height: 56px;
+    }
+}
 
 #mc_embed_signup_scroll {
     display: flex;
@@ -302,38 +331,47 @@ form div {
 @media screen and (max-width: 580px) {
     #mc_embed_signup_scroll {
         flex-direction: column;
+        gap:0;
     }
 }
 
 #mc_embed_signup_scroll .button_wrap {
-    /* position: absolute;
-    width: 300px */
+    
 }
 #mc_embed_signup_scroll .button_wrap:hover {
-    /* position: relative; */
+
 }
 
 input[type="email"] {
-    font-size:14px;
+    font-size:12px;
     padding:4px 4px;
     display:block;
     width:100%;
     height:30px;
-    background-color: transparent;
+    background-color: rgba(var(--white-rgb), 0.1);
     color:rgba(var(--white-rgb), 1.0); 
     border:none;
     border-bottom:1px solid rgba(var(--white-rgb), 0.8);
 }
+@media screen and (max-width: 580px) {
+    input[type="email"] {
+    text-align: center;    }
+}
 
+input[type="email"]:hover {
+    border-bottom:2px solid rgba(var(--white-rgb), 1.0); 
+    background-color: rgba(var(--main-rgb), 0.3);
+
+}
 input[type="email"]:focus {
     outline:none;
     border-bottom:2px solid rgba(var(--white-rgb), 1.0); 
-    background-color: rgba(var(--main-rgb), 0.2);
+    background-color: rgba(var(--main-rgb), 0.3);
 }
 
 label {
     color:rgba(var(--white-rgb), 0.8); 
-    font-size:14px;
+    font-size:12px;
     font-weight:normal;
     position:absolute;
     pointer-events:none;
@@ -343,11 +381,18 @@ label {
     -moz-transition:0.2s ease all; 
     -webkit-transition:0.2s ease all;
 }
+@media screen and (max-width: 580px) {
+    label {
+        left: calc( 250px * .5);
+        /* top: 50%; */
+        transform: translateX(-50%);
+    }
+}
 
 input[type="email"]:focus ~ label, 
 input[type="email"]:not(:placeholder-shown) ~ label {
     top:-18px;
-    font-size:14px;
+    font-size:10px;
     color:rgba(var(--white-rgb), 1.0);
 }
   /*  */
@@ -363,16 +408,16 @@ input[type="email"]:not(:placeholder-shown) ~ label {
     padding: 4px 28px;
     /* border-radius: 5px; */
     background: rgba(var(--white-rgb), 0.0);
-    color:rgba(var(--white-rgb), 1.0);
-    border-color: rgba(var(--white-rgb), 1.0);
+    color:rgba(var(--white-rgb), 0.7);
+    border-color: rgba(var(--white-rgb), 0.35);
     border-style: solid;
     border-width: 1px;
     /* font-family: var(--font-family); */
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.8em;
     /* line-height: 1.5; */
     line-height: 1.8;
-    height: 32px;
+    height: 30px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -403,17 +448,23 @@ input[type="email"]:not(:placeholder-shown) ~ label {
  * Errors
  */
  .error {
-	border-color: red;
+	border-color: #ffe984;
 }
 
 .error-message {
-	color: red;
+	color: #ffe984;
 	/* font-style: italic; */
 	margin-top: 0.25em;
 	margin-bottom: 1em;
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 0.6em;
 }
+@media screen and (max-width: 580px) {
+    .error-message {
+        text-align: center;
+    }
+}
+
 
 .success-message {
   color: green;
