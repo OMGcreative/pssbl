@@ -353,7 +353,7 @@ input[type="email"] {
     background-color: rgba(var(--white-rgb), 0.1);
     color:rgba(var(--white-rgb), 1.0); 
     border:none;
-    border-bottom:1px solid rgba(var(--white-rgb), 0.3);
+    border-bottom:1px solid rgba(var(--white-rgb), 0.5);
 }
 @media screen and (max-width: 580px) {
     input[type="email"] {
@@ -361,7 +361,7 @@ input[type="email"] {
 }
 
 input[type="email"]:hover {
-    border-bottom:2px solid rgba(var(--white-rgb), 0.8); 
+    border-bottom:1px solid rgba(var(--white-rgb), 0.8); 
     background-color: rgba(var(--main-rgb), 0.3);
 
 }
